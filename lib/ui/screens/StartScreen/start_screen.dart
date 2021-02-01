@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/theme/text_style/text_style.dart';
-import 'package:test_app/ui/common_widgets/rounded_buttons.dart';
+import 'package:test_app/ui/common_widgets/rounded_button.dart';
 import 'package:test_app/utils/screen_dimensions.dart';
 import 'package:test_app/utils/resources.dart';
 

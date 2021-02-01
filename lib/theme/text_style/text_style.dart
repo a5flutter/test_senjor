@@ -37,7 +37,6 @@ const TextStyle white20Poppins400 = TextStyle(
     height: 1.2
 );
 
-const TextStyle white32Poppins400 = TextStyle(
 const TextStyle white32Poppins700 = TextStyle(
     color: Colors.white,
     fontSize: 32,

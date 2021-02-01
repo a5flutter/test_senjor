@@ -21,7 +21,7 @@ class StartWidget extends StatelessWidget {
               width: 15 * wMultiplier,
             ),
             Text(
-              appName,
+              'Shortly',
               style: black32Poppins400,
             ),
             Spacer(),
@@ -45,16 +45,16 @@ class StartWidget extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Image.asset(illustrationWorking)),
         Text(
-          startHeader,
+          'More than just shorter links',
           style: black40Poppins400,
           textAlign: TextAlign.center,
         ),
         Text(
-          appDescription,
+          'Build your brand\'s recognition and get detailed insights on how your links are performing',
           style: darkGray18Poppins400,
           textAlign: TextAlign.center,
         ),
-        RoundedRectangleButton(onTap: () {}, label: startButtonLabel),
+        RoundedRectangleButton(onTap: () {}, label: 'Get Started'),
       ],
     );
   }

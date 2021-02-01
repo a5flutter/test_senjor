@@ -14,62 +14,62 @@ class BottomWidget extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 30, 0, 35),
-              child: Center(child: Text('Shortly', style: white32Poppins400)),
+              child: Center(child: Text('Shortly', style: white32Poppins700)),
             ),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
                 alignment: Alignment.center,
-                child: Text('Features', style: white18Poppins400)),
+                child: Text('Features', style: white18Poppins500)),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('Link Shortening', style: gray18Poppins400)),
+                child: Text('Link Shortening', style: gray18Poppins500)),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('Branded Links', style: gray18Poppins400)),
+                child: Text('Branded Links', style: gray18Poppins500)),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('Analytics', style: gray18Poppins400)),
+                child: Text('Analytics', style: gray18Poppins500)),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 35, 0, 15),
               child:
-              Center(child: Text('Resources', style: white18Poppins400)),
+              Center(child: Text('Resources', style: white18Poppins500)),
             ),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('Blog', style: gray18Poppins400)),
+                child: Text('Blog', style: gray18Poppins500)),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('Developers', style: gray18Poppins400)),
+                child: Text('Developers', style: gray18Poppins500)),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('Support', style: gray18Poppins400)),
+                child: Text('Support', style: gray18Poppins500)),
             Container(
               padding: const EdgeInsets.fromLTRB(0, 35, 0, 15),
               alignment: Alignment.center,
-              child: Text('Company', style: white18Poppins400),
+              child: Text('Company', style: white18Poppins500),
             ),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('About', style: gray18Poppins400)),
+                child: Text('About', style: gray18Poppins500)),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('Our Team', style: gray18Poppins400)),
+                child: Text('Our Team', style: gray18Poppins500)),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 alignment: Alignment.center,
-                child: Text('Careers', style: gray18Poppins400)),
+                child: Text('Careers', style: gray18Poppins500)),
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 35),
                 alignment: Alignment.center,
-                child: Text('Contact', style: gray18Poppins400)),
+                child: Text('Contact', style: gray18Poppins500)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

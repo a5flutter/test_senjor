@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/bloc/short_link_bloc.dart';
 import 'package:test_app/http/http_errors.dart';
 
-import '../bottom_widget.dart';
+import '../bottom_widget/bottom_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

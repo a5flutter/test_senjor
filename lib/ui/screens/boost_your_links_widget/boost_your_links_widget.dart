@@ -7,7 +7,7 @@ import 'package:test_app/utils/resourse.dart';
 class BoostYourLinks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final hDisplay = MediaQuery.of(context).size.height;
+    double hDisplay = MediaQuery.of(context).size.height;
     double wDisplay = MediaQuery.of(context).size.width;
     return Container(
       height: hDisplay * 0.4,

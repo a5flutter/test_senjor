@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/screens/body_element_widget.dart';
+import 'package:test_app/ui/screens/body_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BodyElementWidget() // This trailing comma makes auto-formatting nicer for build methods.
+      body: BottomScreen() // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

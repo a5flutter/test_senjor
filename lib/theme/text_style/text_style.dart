@@ -37,6 +37,15 @@ const TextStyle black20Poppins500 = TextStyle(
     height: 1.2
 );
 
+const TextStyle black24Poppins500 = TextStyle(
+    color: Colors.black,
+    fontSize: 24,
+    fontFamily: 'Poppins',
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w500,
+    height: 1.2
+);
+
 const TextStyle white26Poppins700 = TextStyle(
     color: Colors.white,
     fontSize: 26,

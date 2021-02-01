@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'ui/start_screen.dart';
+import 'package:test_app/ui/screens/boost_your_links.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,9 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child:
-                StartScreen()),
-        );
+      body: BoostYourLinks() // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }

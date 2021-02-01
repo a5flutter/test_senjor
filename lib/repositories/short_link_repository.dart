@@ -8,11 +8,9 @@ import 'package:test_app/models/response_model.dart';
 class ShotLinkRepository {
   Dio dio = HttpClient().instance;
 
-  Future<dynamic> get(String path, Map <String, dynamic> params) async {
+  Future<dynamic> get(String path) async {
     try {
       final Response response = await dio.get(path);
-      dio.options.queryParameters.clear();
-      dio.options.queryParameters.addAll(params);
       ResponseModel responseModel = ResponseModel.fromJson(response.data as Map<String, dynamic>);
 
       if(responseModel.ok){

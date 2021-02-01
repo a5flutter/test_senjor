@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_app/bloc/short_link_bloc.dart';
 import 'package:test_app/screens/bottom_widget.dart';
 
 void main() {
@@ -8,11 +10,16 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
+    return MultiBlocProvider(providers:
+    [
+      BlocProvider(create: (context) => ShortLinkBloc()),
+    ],
+        child: MaterialApp(
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: MyHomePage(),
+        )
     );
   }
 }
@@ -23,10 +30,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+ @override
+  void initState() {
+    BlocProvider.of<ShortLinkBloc>(context).add(GetShortLink('example.org/very/long/link.html'));
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BottomWidget() // This trailing comma makes auto-formatting nicer for build methods.
+      body: BottomWidget()
     );
   }
 }

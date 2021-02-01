@@ -11,9 +11,11 @@ class ShortLinkService extends IShortLinkService {
 
   @override
   Future<LinkModel> getShortLink(String longLink) async {
-    final LinkModel linkModel = LinkModel.fromJson(
-        await repository.get('$shorten?url=$longLink',{}) as Map<String, dynamic>);
-
-    return linkModel;
+    final response = await repository.get('$shorten?url=$longLink');
+    if (response != null){
+      final LinkModel linkModel = LinkModel.fromJson(response as Map<String, dynamic>);
+      return linkModel;
+    }
+    return null;
   }
 }

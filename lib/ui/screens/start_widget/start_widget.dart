@@ -4,7 +4,7 @@ import 'package:test_app/ui/common_widgets/rounded_button.dart';
 import 'package:test_app/utils/screen_dimensions.dart';
 import 'package:test_app/utils/resources.dart';
 
-class StartScreen extends StatelessWidget {
+class StartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenDimensions.calculateMultipliers(context);

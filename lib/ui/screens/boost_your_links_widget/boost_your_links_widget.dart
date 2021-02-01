@@ -4,7 +4,7 @@ import 'package:test_app/theme/colors/colors.dart';
 import 'package:test_app/theme/text_style/text_style.dart';
 import 'package:test_app/utils/resourse.dart';
 
-class BoostYourLinks extends StatelessWidget {
+class BoostYourLinksWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double hDisplay = MediaQuery.of(context).size.height;

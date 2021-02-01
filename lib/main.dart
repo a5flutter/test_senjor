@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'ui/start_screen.dart';
+import 'package:test_app/screens/bottom_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,18 +8,25 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return
-      // MultiBlocProvider(
-      //   providers: [
-      //     // BlocProvider(create: (context) => LoginBloc()),
-      //   ],
-      //   child: MaterialApp(
-        MaterialApp(
-            theme: ThemeData(),
-            // routes: appRoutes,
-            // initialRoute: Screens.launch
-          home: StartScreen(),
-        );
-    // );
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: BottomWidget() // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }

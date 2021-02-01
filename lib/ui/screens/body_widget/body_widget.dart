@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/theme/text_style/text_style.dart';
 import 'package:test_app/ui/screens/body_widget/body_element_widget.dart';
-import 'package:test_app/utils/resourse.dart';
+import 'package:test_app/utils/resources.dart';
 
-class BottomScreen extends StatelessWidget {
+class BodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_app/theme/colors/colors.dart';
 import 'package:test_app/theme/text_style/text_style.dart';
-import 'package:test_app/utils/resourse.dart';
+import 'package:test_app/utils/resources.dart';
 
-class BoostYourLinks extends StatelessWidget {
+class BoostYourLinksWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double hDisplay = MediaQuery.of(context).size.height;

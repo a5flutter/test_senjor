@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/screens/bottom_widget.dart';
+
+import 'ui/start_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +27,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BottomWidget() // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: SafeArea(
+            child:
+                StartScreen()),
+        );
   }
 }

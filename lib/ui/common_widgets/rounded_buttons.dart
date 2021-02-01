@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/theme/colors/colors.dart';
+import 'package:test_app/theme/text_style/text_style.dart';
 import 'package:test_app/utils/screen_dimensions.dart';
 
 class RoundedRectangleButton extends StatelessWidget {
@@ -18,10 +19,9 @@ class RoundedRectangleButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25 * wMultiplier)),
         color: cyan,
-        minWidth: 200 * wMultiplier,
+        minWidth: MediaQuery.of(context).size.width * 0.5,
         height: 50 * hMultiplier,
-        // add style
-        child: Text(label),
+        child: Text(label, style: white20Poppins400),
         );
   }
 }

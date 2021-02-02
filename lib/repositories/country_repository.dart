@@ -5,7 +5,7 @@ import 'package:test_app/http/http_client.dart';
 import 'package:test_app/http/http_errors.dart';
 import 'package:test_app/models/response_model.dart';
 
-class ShotLinkRepository {
+class CountryRepository {
   Dio dio = HttpClient().instance;
 
   Future<dynamic> get(String path) async {

@@ -16,7 +16,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
       height: 48,
       width: MediaQuery.of(context).size.width * 0.5,
       color: white,
-      margin: EdgeInsets.fromLTRB(15, 120, MediaQuery.of(context).size.width * 0.5, 0),
+      margin: EdgeInsets.fromLTRB(15, 40, MediaQuery.of(context).size.width * 0.5, 0),
       child: DropdownButtonFormField(
         decoration: InputDecoration(
             enabledBorder: UnderlineInputBorder(

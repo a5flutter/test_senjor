@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/bloc/country_bloc.dart';
-import 'package:test_app/ui/screens/country_list.dart';
+import 'package:test_app/ui/screens/home_screen/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: CountryList(),
+          home: HomeScreen(),
         ));
   }
 }

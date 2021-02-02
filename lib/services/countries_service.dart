@@ -4,10 +4,14 @@ import 'package:test_app/utils/api_url.dart';
 
 abstract class ICountryService {
   Future<List<CountryModel>> fetchAllCountries();
-  Future<CountryModel> fetchCountryByName(String name);
-  Future<CountryModel> fetchCountryByFullName(String fullName);
-  Future<CountryModel> fetchCountryByRegion(String region);
 
+  Future<List<CountryModel>> fetchCountryByName(String name);
+
+  Future<List<CountryModel>> fetchCountryByFullName(String fullName);
+
+  Future<List<CountryModel>> fetchCountryByRegion(String region);
+
+  Future<CountryModel> fetchCountryByCode(String currencyCode);
 }
 
 class CountryService extends ICountryService {
@@ -16,10 +20,10 @@ class CountryService extends ICountryService {
   @override
   Future<List<CountryModel>> fetchAllCountries() async {
     List<CountryModel> result = [];
-    final response = await repository.get(all);
-    if (response != null){
+    final response = await repository.get(allUrl);
+    if (response != null) {
       List<dynamic> list = response.data as List;
-      for (dynamic tmp in list){
+      for (dynamic tmp in list) {
         result.add(CountryModel.fromJson(tmp));
       }
       return result;
@@ -28,33 +32,54 @@ class CountryService extends ICountryService {
   }
 
   @override
-  Future<CountryModel> fetchCountryByName(String name) async {
-    final response = await repository.get('$name/$name');
-    if (response != null){
-      final CountryModel countryModel = CountryModel.fromJson(response as Map<String, dynamic>);
-      return countryModel;
+  Future<List<CountryModel>> fetchCountryByName(String name) async {
+    List<CountryModel> result = [];
+    final response = await repository.get('$countryNameUrl/$name');
+    if (response != null) {
+      List<dynamic> list = response.data as List;
+      for (dynamic tmp in list) {
+        result.add(CountryModel.fromJson(tmp));
+      }
+      return result;
     }
     return null;
   }
 
   @override
-  Future<CountryModel> fetchCountryByFullName(String name) async {
-    final response = await repository.get('$name/$name$countryFullName');
-    if (response != null){
-      final CountryModel countryModel = CountryModel.fromJson(response as Map<String, dynamic>);
-      return countryModel;
+  Future<List<CountryModel>> fetchCountryByFullName(String name) async {
+    List<CountryModel> result = [];
+    final response =
+        await repository.get('$countryNameUrl/$name$countryFullName');
+    if (response != null) {
+      List<dynamic> list = response.data as List;
+      for (dynamic tmp in list) {
+        result.add(CountryModel.fromJson(tmp));
+      }
+      return result;
     }
     return null;
   }
 
   @override
-  Future<CountryModel> fetchCountryByRegion(String region) async {
-    final response = await repository.get('$region/$region');
-    if (response != null){
-      final CountryModel countryModel = CountryModel.fromJson(response as Map<String, dynamic>);
-      return countryModel;
+  Future<List<CountryModel>> fetchCountryByRegion(String region) async {
+    List<CountryModel> result = [];
+    final response = await repository.get('$regionUrl/$region');
+    if (response != null) {
+      List<dynamic> list = response.data as List;
+      for (dynamic tmp in list) {
+        result.add(CountryModel.fromJson(tmp));
+      }
+      return result;
     }
     return null;
   }
 
+  @override
+  Future<CountryModel> fetchCountryByCode(String countryCode) async {
+    final response = await repository.get('$alphaUrl/$countryCode');
+    if (response != null) {
+      return CountryModel.fromJson(response.data as Map<String, dynamic>);
+    }
+    return null;
+  }
 }

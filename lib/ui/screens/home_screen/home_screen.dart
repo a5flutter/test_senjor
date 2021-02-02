@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/theme/text_style.dart';
 import 'package:test_app/ui/header_wiget/header_widget.dart';
-import 'package:test_app/ui/list_item/list_country.dart';
+import 'package:test_app/ui/list_country/list_country.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

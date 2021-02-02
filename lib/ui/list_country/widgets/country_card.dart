@@ -23,7 +23,7 @@ class CountryCard extends StatelessWidget {
         Container(
             alignment: Alignment.centerLeft,
             margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
-            child: Text(name, style: black18Nunito_Sans300)),
+            child: Text(name, style: black18Nunito_Sans800)),
         Container(
             alignment: Alignment.centerLeft,
             margin: EdgeInsets.fromLTRB(20, 20, 0, 0),

@@ -27,7 +27,7 @@ const TextStyle black14Nunito_Sans600 = TextStyle(
     height: 1.2
 );
 
-const TextStyle black18Nunito_Sans300 = TextStyle(
+const TextStyle black18Nunito_Sans800 = TextStyle(
     color: Colors.black,
     fontSize: 18,
     fontFamily: 'Nunito_Sans',

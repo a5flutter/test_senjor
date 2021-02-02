@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:test_app/theme/text_style.dart';
 import 'package:test_app/ui/header_wiget/header_widget.dart';
 import 'package:test_app/ui/list_country/list_country.dart';
+import 'package:test_app/ui/search_input_field_widget/search_input_field_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
 
@@ -30,6 +36,10 @@ class HomeScreen extends StatelessWidget {
             ]),
         body: ListView(
           children: [
+            SearchInputFieldWidget(
+                onSearch: (text){ setState(() {
+                  //_searchPetBreeds = SearchUtils.searchInPetBreeds(_petBreeds, text);
+                });}),
             HeaderWidget(),
             ListCountry(),
           ],

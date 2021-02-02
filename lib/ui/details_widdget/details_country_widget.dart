@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_app/models/country_model.dart';
 import 'package:test_app/theme/colors.dart';
 import 'package:test_app/theme/text_style.dart';
 import 'package:test_app/ui/details_widdget/text_span_widget.dart';
 
 class DetailsCountryWidget extends StatelessWidget {
+  const DetailsCountryWidget({this.country});
+
+  final CountryModel country;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,44 +82,42 @@ class DetailsCountryWidget extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.3,
                 margin:
                     EdgeInsets.only(left: 25, top: 40, right: 25, bottom: 0),
-                color: Colors.lightGreen,
+                child: SvgPicture.network(country.flag),
               ),
               Container(
                   alignment: Alignment.centerLeft,
                   margin:
                       EdgeInsets.only(left: 25, top: 30, right: 0, bottom: 0),
                   child: Text(
-                    'Belgio',
+                    country.name,
                     style: black18Nunito_Sans800,
                   )),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 20, right: 0, bottom: 0),
-                  'Native name: ',
-                  'Belgium'),
+                  'Native name: ', country.nativeName),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 10, right: 0, bottom: 0),
-                  'Population: ',
-                  'Belgium'),
+                  'Population: ', country.population.toString()),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 10, right: 0, bottom: 0),
                   'Region: ',
-                  'Belgium'),
+                  country.region),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 10, right: 0, bottom: 0),
                   'Sub Region: ',
-                  'Belgium'),
+                  country.subregion),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 10, right: 0, bottom: 0),
                   'Capital: ',
-                  'Belgium'),
+                  country.capital),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 30, right: 0, bottom: 0),
                   'Top Level Domain: ',
-                  'Belgium'),
+                  country.topLevelDomain.toString()),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 10, right: 0, bottom: 0),
                   'Currencies: ',
-                  'Belgium'),
+                  country.currencies.toString()),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 10, right: 0, bottom: 0),
                   'Languages: ',
@@ -131,11 +135,12 @@ class DetailsCountryWidget extends StatelessWidget {
                   physics: ClampingScrollPhysics(),
                   childAspectRatio: (70 / 30),
                   crossAxisCount: 3,
-                  children: List<Widget>.generate(14, (index) {
+                  children: List<Widget>.generate(country.borders.length, (index) {
                     return TextButton(
                       onPressed: () {},
                       child: Container(
-                        margin: EdgeInsets.only(left: 0, top: 0, right: 0, bottom: 0),
+                        margin: EdgeInsets.only(
+                            left: 0, top: 0, right: 0, bottom: 0),
                         height: 40,
                         width: 110,
                         decoration: BoxDecoration(
@@ -145,11 +150,14 @@ class DetailsCountryWidget extends StatelessWidget {
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 5,
                               blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
                             ),
                           ],
                         ),
-                        child: Center(child: Text('France', style: black14Nunito_Sans300)),
+                        child: Center(
+                            child:
+                                Text(country.borders[index], style: black14Nunito_Sans300)),
                       ),
                     );
                   }))

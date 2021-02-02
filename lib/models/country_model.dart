@@ -35,7 +35,7 @@ class CountryModel {
   final List<String> callingCodes;
   final String capital;
   final List<String> altSpellings;
-  final Region region;
+  final String region;
   final String subregion;
   final int population;
   final List<double> latlng;
@@ -65,7 +65,7 @@ class CountryModel {
     callingCodes: List<String>.from(json["callingCodes"].map((x) => x)),
     capital: json["capital"],
     altSpellings: List<String>.from(json["altSpellings"].map((x) => x)),
-    region: regionValues.map[json["region"]],
+    region: json["region"] as String,
     subregion: json["subregion"],
     population: json["population"],
     latlng: List<double>.from(json["latlng"].map((x) => x.toDouble())),
@@ -92,7 +92,7 @@ class CountryModel {
     "callingCodes": List<dynamic>.from(callingCodes.map((x) => x)),
     "capital": capital,
     "altSpellings": List<dynamic>.from(altSpellings.map((x) => x)),
-    "region": regionValues.reverse[region],
+    "region": region,
     "subregion": subregion,
     "population": population,
     "latlng": List<dynamic>.from(latlng.map((x) => x)),
@@ -172,17 +172,17 @@ class Language {
   };
 }
 
-enum Region { ASIA, EUROPE, AFRICA, OCEANIA, AMERICAS, POLAR, EMPTY }
-
-final regionValues = EnumValues({
-  "Africa": Region.AFRICA,
-  "Americas": Region.AMERICAS,
-  "Asia": Region.ASIA,
-  "": Region.EMPTY,
-  "Europe": Region.EUROPE,
-  "Oceania": Region.OCEANIA,
-  "Polar": Region.POLAR
-});
+// enum Region { ASIA, EUROPE, AFRICA, OCEANIA, AMERICAS, POLAR, EMPTY }
+//
+// final regionValues = EnumValues({
+//   "Africa": Region.AFRICA,
+//   "Americas": Region.AMERICAS,
+//   "Asia": Region.ASIA,
+//   "": Region.EMPTY,
+//   "Europe": Region.EUROPE,
+//   "Oceania": Region.OCEANIA,
+//   "Polar": Region.POLAR
+// });
 
 class RegionalBloc {
   RegionalBloc({

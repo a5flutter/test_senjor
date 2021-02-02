@@ -55,11 +55,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/images/
-  #   - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -72,10 +67,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Poppins
+     - family: Nunito_Sans
        fonts:
-         - asset: assets/fonts/Poppins/Poppins-Regular.ttf
-         - asset: assets/fonts/Poppins/Poppins-Italic.ttf
+         - asset: assets/fonts/Nunito_Sans/NunitoSans-Regular.ttf
+         - asset: assets/fonts/Nunito_Sans/NunitoSans-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

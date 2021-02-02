@@ -4,3 +4,4 @@
   const String countryNameUrl = 'name';
   const String regionUrl = 'region';
   const String countryFullName = '?fullText=true';
+  const String alphaUrl = 'alpha';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_app/models/country_model.dart';
+import 'package:test_app/services/countries_service.dart';
 import 'package:test_app/theme/colors.dart';
 import 'package:test_app/theme/text_style.dart';
 import 'package:test_app/ui/details_widdget/text_span_widget.dart';
@@ -28,6 +29,15 @@ class DetailsCountryWidget extends StatelessWidget {
     return language;
   }
 
+  CountryModel getCountryByCode(String countryCode) {
+    CountryModel country;
+    CountryService().fetchCountryByCode(countryCode).then((value) {
+      country = value;
+    });
+    return country;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,9 +57,9 @@ class DetailsCountryWidget extends StatelessWidget {
               SizedBox(width: 5),
               Center(
                   child: Text(
-                'Dark Mode',
-                style: black14Nunito_Sans300,
-              )),
+                    'Dark Mode',
+                    style: black14Nunito_Sans300,
+                  )),
               SizedBox(width: 15)
             ]),
         body: SingleChildScrollView(
@@ -63,7 +73,7 @@ class DetailsCountryWidget extends StatelessWidget {
                   },
                   child: Container(
                     margin:
-                        EdgeInsets.only(left: 20, top: 40, right: 0, bottom: 0),
+                    EdgeInsets.only(left: 20, top: 40, right: 0, bottom: 0),
                     height: 40,
                     width: 110,
                     decoration: BoxDecoration(
@@ -97,15 +107,18 @@ class DetailsCountryWidget extends StatelessWidget {
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height * 0.3,
                 margin:
-                    EdgeInsets.only(left: 25, top: 40, right: 25, bottom: 0),
+                EdgeInsets.only(left: 25, top: 40, right: 25, bottom: 0),
                 child: SvgPicture.network(country.flag),
               ),
               Container(
                   alignment: Alignment.centerLeft,
                   margin:
-                      EdgeInsets.only(left: 25, top: 30, right: 0, bottom: 0),
+                  EdgeInsets.only(left: 25, top: 30, right: 0, bottom: 0),
                   child: Text(
                     country.name,
                     style: black18Nunito_Sans800,
@@ -143,7 +156,7 @@ class DetailsCountryWidget extends StatelessWidget {
               Container(
                   alignment: Alignment.centerLeft,
                   margin:
-                      EdgeInsets.only(left: 25, top: 40, right: 0, bottom: 0),
+                  EdgeInsets.only(left: 25, top: 40, right: 0, bottom: 0),
                   child: Text(
                     'Border Countries:',
                     style: black16Nunito_Sans600,
@@ -153,10 +166,18 @@ class DetailsCountryWidget extends StatelessWidget {
                   physics: ClampingScrollPhysics(),
                   childAspectRatio: (70 / 30),
                   crossAxisCount: 3,
-                  children: List<Widget>.generate(country.borders.length, (index) {
+                  children: List<Widget>.generate(
+                      country.borders.length, (index) {
                     return TextButton(
                       onPressed: () {
-
+                        CountryModel neighbor = getCountryByCode(country?.borders[index]);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailsCountryWidget(
+                                      country: neighbor,
+                                    )));
                       },
                       child: Container(
                         margin: EdgeInsets.only(
@@ -171,13 +192,14 @@ class DetailsCountryWidget extends StatelessWidget {
                               spreadRadius: 5,
                               blurRadius: 7,
                               offset:
-                                  Offset(0, 3), // changes position of shadow
+                              Offset(0, 3), // changes position of shadow
                             ),
                           ],
                         ),
                         child: Center(
                             child:
-                                Text(country.borders[index], style: black14Nunito_Sans300)),
+                            Text(country.borders[index],
+                                style: black14Nunito_Sans300)),
                       ),
                     );
                   }))

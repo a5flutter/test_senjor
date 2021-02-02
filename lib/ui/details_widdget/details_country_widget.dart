@@ -10,6 +10,22 @@ class DetailsCountryWidget extends StatelessWidget {
 
   final CountryModel country;
 
+  String getCurrencies(List<Currency> currencies){
+    String currency = '';
+    for(Currency tmp in currencies){
+      currency += '${tmp.name},';
+    }
+    return currency;
+  }
+
+  String getLanguages(List<Language> languages){
+    String language = '';
+    for(Language tmp in languages){
+      language += '${tmp.name},';
+    }
+    return language;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,11 +133,11 @@ class DetailsCountryWidget extends StatelessWidget {
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 10, right: 0, bottom: 0),
                   'Currencies: ',
-                  country.currencies.toString()),
+                  getCurrencies(country?.currencies)),
               textSpanWidget(
                   EdgeInsets.only(left: 25, top: 10, right: 0, bottom: 0),
                   'Languages: ',
-                  'Belgium'),
+                  getLanguages(country.languages)),
               Container(
                   alignment: Alignment.centerLeft,
                   margin:
@@ -137,7 +153,9 @@ class DetailsCountryWidget extends StatelessWidget {
                   crossAxisCount: 3,
                   children: List<Widget>.generate(country.borders.length, (index) {
                     return TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+                      },
                       child: Container(
                         margin: EdgeInsets.only(
                             left: 0, top: 0, right: 0, bottom: 0),

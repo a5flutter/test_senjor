@@ -16,18 +16,21 @@ class CountryBloc extends Bloc<CountryEvent, CountryState> {
   Stream<CountryState> mapEventToState(CountryEvent event) async* {
     if (event is FetchAllCountriesEvent) {
       final countries = await service?.fetchAllCountries();
+      yield ProcessCountryState();
       yield FetchAllCountriesState(countries: countries);
     }
     if (event is FetchCountryByNameEvent) {
       final countries = await service.fetchCountryByName(event.name);
       if (countries != null) {
-        yield FetchCountryByNameState(countryModel: countries);
+        yield ProcessCountryState();
+        yield FetchAllCountriesState(countries: countries);
       }
     }
     if (event is FetchCountryByRegionEvent) {
       final countries = await service.fetchCountryByRegion(event.region);
       if (countries != null) {
-        yield FetchCountryByNameState(countryModel: countries);
+        yield ProcessCountryState();
+        yield FetchAllCountriesState(countries: countries);
       }
     }
   }

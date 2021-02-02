@@ -14,20 +14,9 @@ class FetchAllCountriesState extends CountryState {
   List<Object> get props => [countries];
 }
 
-class FetchCountryByNameState extends CountryState {
-  FetchCountryByNameState({this.countryModel});
-
-  final List<CountryModel> countryModel;
+class ProcessCountryState extends CountryState {
 
   @override
-  List<Object> get props => [countryModel];
+  List<Object> get props => [];
 }
 
-class FetchCountryByRegionState extends CountryState {
-  FetchCountryByRegionState({this.countryModel});
-
-  final List<CountryModel> countryModel;
-
-  @override
-  List<Object> get props => [countryModel];
-}

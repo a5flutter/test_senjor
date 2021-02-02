@@ -36,10 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
         body: ListView(
           children: [
-            SearchInputFieldWidget(
-                onSearch: (text){ setState(() {
-                  //_searchPetBreeds = SearchUtils.searchInPetBreeds(_petBreeds, text);
-                });}),
+            SearchInputFieldWidget(),
             HeaderWidget(),
             ListCountry(),
           ],

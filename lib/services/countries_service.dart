@@ -3,7 +3,7 @@ import 'package:test_app/repositories/country_repository.dart';
 import 'package:test_app/utils/api_url.dart';
 
 abstract class ICountryService {
-  Future<CountryModel> fetchAllCountries();
+  Future<List<CountryModel>> fetchAllCountries();
   Future<CountryModel> fetchCountryByName(String name);
   Future<CountryModel> fetchCountryByFullName(String fullName);
   Future<CountryModel> fetchCountryByRegion(String region);
@@ -14,11 +14,15 @@ class CountryService extends ICountryService {
   CountryRepository repository = CountryRepository();
 
   @override
-  Future<CountryModel> fetchAllCountries() async {
+  Future<List<CountryModel>> fetchAllCountries() async {
+    List<CountryModel> result = [];
     final response = await repository.get(all);
     if (response != null){
-      final CountryModel countryModel = CountryModel.fromJson(response as Map<String, dynamic>);
-      return countryModel;
+      List<dynamic> list = response.data as List;
+      for (dynamic tmp in list){
+        result.add(CountryModel.fromJson(tmp));
+      }
+      return result;
     }
     return null;
   }

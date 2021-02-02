@@ -6,12 +6,12 @@ abstract class CountryState extends Equatable {
 }
 
 class FetchAllCountriesState extends CountryState {
-  FetchAllCountriesState({this.countryModel});
+  FetchAllCountriesState({this.countries});
 
-  final CountryModel countryModel;
+  final List<CountryModel> countries;
 
   @override
-  List<Object> get props => [countryModel];
+  List<Object> get props => [countries];
 }
 
 class FetchCountryByNameState extends CountryState {

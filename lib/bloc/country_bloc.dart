@@ -16,7 +16,6 @@ class CountryBloc extends Bloc<CountryEvent, CountryState> {
   Stream<CountryState> mapEventToState(CountryEvent event) async* {
     if (event is FetchAllCountriesEvent) {
       final countries = await service?.fetchAllCountries();
-      print(countries);
       yield FetchAllCountriesState(countries: countries);
     }
     if (event is FetchCountryByNameEvent) {

@@ -6,6 +6,7 @@ import 'package:test_app/ui/list_country/list_country.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.white,
@@ -33,6 +34,5 @@ class HomeScreen extends StatelessWidget {
             ListCountry(),
           ],
         ));
-    //});
   }
 }

@@ -13,7 +13,10 @@ class CountryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.5,
-      color: white,
+      decoration: BoxDecoration(
+        color: white,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
       child: Column(children: [
         Container(
           height: MediaQuery.of(context).size.height * 0.25,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_app/bloc/country_bloc.dart';
 import 'package:test_app/theme/colors.dart';
 import 'package:test_app/theme/text_style.dart';
 
@@ -33,7 +35,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
         isExpanded: true,
         iconSize: 30.0,
         style: TextStyle(color: Colors.blue),
-        items: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'].map(
+        items: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'].map(
               (val) {
             return DropdownMenuItem<String>(
               value: val,
@@ -45,6 +47,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           },
         ).toList(),
         onChanged: (val) {
+          BlocProvider.of<CountryBloc>(context).add(FetchCountryByRegionEvent(region: val));
           setState(
                 () {
               _dropDownValue = val;

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_app/bloc/country_bloc.dart';
 import 'package:test_app/theme/colors.dart';
 import 'package:test_app/theme/text_style.dart';
 
 class SearchInputFieldWidget extends StatefulWidget {
-  const SearchInputFieldWidget({this.onSearch});
-
-  final Function (String searchStr) onSearch;
 
   @override
   SearchInputFieldWidgetState createState() => SearchInputFieldWidgetState();
@@ -32,8 +31,8 @@ class SearchInputFieldWidgetState extends State<SearchInputFieldWidget> {
                 child: TextField(
                   style: black16Nunito_Sans600,
                   controller: _controller,
-                  onSubmitted: (str){widget.onSearch(str);},
-                  onChanged: (str){ widget.onSearch(str);},
+                  onSubmitted: (str){BlocProvider.of<CountryBloc>(context).add(FetchCountryByNameEvent(name: str));},
+                  onChanged: (str){BlocProvider.of<CountryBloc>(context).add(FetchCountryByNameEvent(name: str));},
                   decoration: InputDecoration(
                     prefixIcon: Padding(
                       padding: EdgeInsets.only(

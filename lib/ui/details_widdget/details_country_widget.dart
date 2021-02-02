@@ -11,19 +11,21 @@ class DetailsCountryWidget extends StatelessWidget {
 
   final CountryModel country;
 
-  String getCurrencies(List<Currency> currencies) {
+  String getCurrencies(List<Currency> currencies){
     String currency = '';
-    for (Currency tmp in currencies) {
-      currency += '${tmp.name},';
+    for(Currency tmp in currencies){
+      currency += '${tmp.name}, ';
     }
+    currency = currency.substring(0, currency.length - 2);
     return currency;
   }
 
-  String getLanguages(List<Language> languages) {
+  String getLanguages(List<Language> languages){
     String language = '';
-    for (Language tmp in languages) {
-      language += '${tmp.name},';
+    for(Language tmp in languages){
+      language += '${tmp.name}, ';
     }
+    language = language.substring(0, language.length - 2);
     return language;
   }
 
@@ -34,6 +36,7 @@ class DetailsCountryWidget extends StatelessWidget {
     });
     return country;
   }
+
 
   @override
   Widget build(BuildContext context) {

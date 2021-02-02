@@ -7,6 +7,7 @@ abstract class ICountryService {
   Future<List<CountryModel>> fetchCountryByName(String name);
   Future<List<CountryModel>> fetchCountryByFullName(String fullName);
   Future<List<CountryModel>> fetchCountryByRegion(String region);
+  Future<CountryModel> fetchCountryByCode(String countryCode);
 
 }
 
@@ -65,6 +66,15 @@ class CountryService extends ICountryService {
         result.add(CountryModel.fromJson(tmp));
       }
       return result;
+    }
+    return null;
+  }
+
+  @override
+  Future<CountryModel> fetchCountryByCode(String countryCode) async {
+    final response = await repository.get('$alphaUrl/$countryCode');
+    if (response != null) {
+      return CountryModel.fromJson(response.data as Map<String, dynamic>);
     }
     return null;
   }
